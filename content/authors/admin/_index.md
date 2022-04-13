@@ -11,8 +11,10 @@ role: Assistant Professor
 # Organizations/Affiliations to show in About widget
 organizations:
 - name: School of Electrical Engineering
+  url: https://ee.kaist.ac.kr/
 - name: KAIST
-  url: https://www.kaist.ac.kr/
+  url: https://kaist.ac.kr/
+
 
 # Short bio (displayed in user profile at end of posts)
 bio: My research interests include distributed robotics, mobile computing and programmable matter.
@@ -65,7 +67,7 @@ email: ""
 highlight_name: true
 ---
 
-Insu Yun is an assistant professor at KAIST. He is interested in system
+Insu Yun is an assistant professor at KAIST, currently leading [Hacking Lab](https://hacking.kaist.ac.kr/). He is interested in system
 security in general, especially, binary analysis, automatic vulnerability
 detection, and automatic exploit generation. His work has been published to the
 major computer conferences such as IEEE Security & Privacy, USENIX Security,
