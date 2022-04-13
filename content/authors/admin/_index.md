@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Insu Yun
+title: Insu Yun (윤인수)
 
 # Is this the primary user of the site?
 superuser: true
@@ -56,7 +56,7 @@ social:
 # and uncomment the lines below.
 - icon: cv
   icon_pack: ai
-  link: uploads/cv.pdf
+  link: cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: ""
