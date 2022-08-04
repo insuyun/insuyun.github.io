@@ -14,7 +14,7 @@ authors:
 tags: []
 categories: []
 date: '2021-02-01'
-lastmod: 2022-02-10T11:34:02+09:00
+lastmod: 2022-08-04T15:47:27+09:00
 featured: false
 draft: false
 
@@ -32,7 +32,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2022-02-10T02:34:02.012479Z'
+publishDate: '2022-08-04T06:47:27.761245Z'
 publication_types:
 - '0'
 abstract: "Cellular basebands play a crucial role in mobile communication. However,\
@@ -58,7 +58,7 @@ abstract: "Cellular basebands play a crucial role in mobile communication. Howev
   \ Notably, two of these are critical remote code execution 0-days. Moreover, we\
   \ applied BaseSpec to 3 models from another vendor, and BaseSpec found multiple\
   \ mismatches, two of which led us to discover a buffer overflow bug.\n"
-publication: '*Proceedings of the 2021  Annual Network and Distributed System Security
+publication: '*Proceedings of the 2021 Annual Network and Distributed System Security
   Symposium (NDSS)*'
 url_slides: pubs/2021/kim:basespec-slides.pdf
 url_paper: pubs/2021/kim:basespec.pdf

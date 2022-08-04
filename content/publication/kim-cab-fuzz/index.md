@@ -15,7 +15,7 @@ authors:
 tags: []
 categories: []
 date: '2017-07-01'
-lastmod: 2022-02-10T09:57:08+09:00
+lastmod: 2022-08-04T15:47:28+09:00
 featured: false
 draft: false
 
@@ -33,7 +33,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2022-02-10T00:57:08.769489Z'
+publishDate: '2022-08-04T06:47:28.309451Z'
 publication_types:
 - '0'
 abstract: "Discovering the security vulnerabilities of commercial off-the-shelf\n\

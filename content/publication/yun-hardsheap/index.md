@@ -12,7 +12,7 @@ authors:
 tags: []
 categories: []
 date: '2021-11-01'
-lastmod: 2022-02-10T11:34:01+09:00
+lastmod: 2022-08-04T15:47:27+09:00
 featured: false
 draft: false
 
@@ -30,7 +30,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2022-02-10T02:34:01.886297Z'
+publishDate: '2022-08-04T06:47:27.556930Z'
 publication_types:
 - '0'
 abstract: "Secure allocators have been extensively studied to mitigate heap\nvulnerabilities.\

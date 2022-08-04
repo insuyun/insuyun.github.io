@@ -16,7 +16,7 @@ authors:
 tags: []
 categories: []
 date: '2012-10-01'
-lastmod: 2022-02-10T18:42:47+09:00
+lastmod: 2022-08-04T15:47:28+09:00
 featured: false
 draft: false
 
@@ -34,7 +34,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2022-02-10T09:42:47.401092Z'
+publishDate: '2022-08-04T06:47:28.582645Z'
 publication_types:
 - '0'
 abstract: "As high-speed networks are becoming commonplace, it is increasingly challenging\n\
