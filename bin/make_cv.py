@@ -5,15 +5,25 @@ import bibtexparser
 from bibtexparser.bparser import BibTexParser
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
-
-PUB_BIB = os.path.join(ROOT, "assets/pubs/pub.bib")
-CONF_BIB = os.path.join(ROOT, "assets/pubs/conf.bib")
 CONTENT_DIR = os.path.join(ROOT, "content")
 
 NEWS_NUM = 8
 MY_NAME = 'Insu Yun'
 
 LB = ' \\\\'
+
+def get_bib_files(domestic):
+    bib_dir = "assets/pubs/"
+
+    if domestic:
+        bib_dir += "dom"
+    else:
+        bib_dir += "intl"
+
+    conf_bib = os.path.join(bib_dir, "conf.bib")
+    pub_bib = os.path.join(bib_dir, "pub.bib")
+
+    return conf_bib, pub_bib
 
 def md_highlight(s):
     return '**%s**' % s
@@ -58,8 +68,9 @@ def replace_text(text, key, content):
 
 def read_bib(highlight, domestic=False):
     conf_dict = {}
+    conf_bib, pub_bib = get_bib_files(domestic)
     parser = BibTexParser(common_strings=True)
-    conf_entries = bibtexparser.load(open(CONF_BIB), parser).entries
+    conf_entries = bibtexparser.load(open(conf_bib), parser).entries
 
     for entry in conf_entries:
         # Add year to its nick
@@ -72,20 +83,14 @@ def read_bib(highlight, domestic=False):
     parser = BibTexParser(common_strings=True)
 
     pub_entries = []
-    raw_pub_entries = bibtexparser.load(open(PUB_BIB), parser).entries
+    raw_pub_entries = bibtexparser.load(open(pub_bib), parser).entries
 
     for i, entry in enumerate(raw_pub_entries):
         if 'crossref' in entry:
             metadata = conf_dict[entry['crossref']]
-            if metadata.get('type') == 'domestic':
-                if domestic:
-                    pub_entries.append(purify_bib_entry(entry, highlight))
-            else:
-                if not domestic:
-                    pub_entries.append(purify_bib_entry(entry, highlight))
+            pub_entries.append(purify_bib_entry(entry, highlight))
         else:
-            if not domestic:
-                pub_entries.append(purify_bib_entry(entry, highlight))
+            pub_entries.append(purify_bib_entry(entry, highlight))
 
     return conf_dict, pub_entries
 

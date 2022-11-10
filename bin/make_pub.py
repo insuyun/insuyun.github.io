@@ -25,7 +25,7 @@ def read_conf():
     """
     Returns a mapping between a conference name to its metadata
     """
-    conf_bib = os.path.join(os.path.abspath(_ROOT), '../assets/pubs/conf.bib')
+    conf_bib = os.path.join(os.path.abspath(_ROOT), '../assets/pubs/intl/conf.bib')
     assert(os.path.exists(conf_bib))
 
     confs = {}
@@ -152,7 +152,7 @@ def main():
     confs = read_conf()
 
     parser = BibTexParser(common_strings=True)
-    pub_bib = os.path.join(os.path.abspath(_ROOT), '../assets/pubs/pub.bib')
+    pub_bib = os.path.join(os.path.abspath(_ROOT), '../assets/pubs/intl/pub.bib')
     bib_database = bibtexparser.load(open(pub_bib), parser)
 
     for i, entry in enumerate(bib_database.entries):
