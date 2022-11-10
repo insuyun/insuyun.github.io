@@ -1,7 +1,7 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: 'Fuzzing@Home: Distributed Fuzzing on Untrusted Heterogeneous Clients (to appear)'
+title: 'Fuzzing@Home: Distributed Fuzzing on Untrusted Heterogeneous Clients'
 subtitle: ''
 summary: ''
 authors:
@@ -14,7 +14,7 @@ authors:
 tags: []
 categories: []
 date: '2022-10-01'
-lastmod: 2022-08-04T15:47:27+09:00
+lastmod: 2022-11-11T04:23:00+09:00
 featured: false
 draft: false
 
@@ -32,10 +32,12 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2022-08-04T06:47:27.417406Z'
+publishDate: '2022-11-10T19:23:00.021042Z'
 publication_types:
 - '0'
 abstract: ''
 publication: '*Proceedings of the 2022 International Symposium on Research in Attacks,
   Intrusions and Defenses (RAID)*'
+url_slides: pubs/2022/jang:fuzzcoin-slides.pdf
+url_paper: pubs/2022/jang:fuzzcoin.pdf
 ---

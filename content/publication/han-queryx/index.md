@@ -1,17 +1,21 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: Analyzing Qualcomm Hexagon Emulators via Differential Testing
+title: 'QueryX: Symbolic Query on Decompiled Code for Finding Bugs in COTS Binaries
+  (to appear)'
 subtitle: ''
 summary: ''
 authors:
-- Hyunsik Jung
+- HyungSeok Han
+- JeongOh Kyea
+- Yonghwi Jin
+- Jinoh Kang
+- Brian Park
 - Insu Yun
-- Yongdae Kim
 tags: []
 categories: []
-date: '2021-06-01'
-lastmod: 2022-08-04T15:47:27+09:00
+date: '2023-05-01'
+lastmod: 2022-11-11T04:22:59+09:00
 featured: false
 draft: false
 
@@ -29,10 +33,9 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2022-08-04T06:47:27.625596Z'
+publishDate: '2022-11-10T19:22:59.856581Z'
 publication_types:
 - '0'
 abstract: ''
-publication: '*Proceedings of the Conference on Information Security and Cryptography
-  Summer(CISC-S) 2021*'
+publication: '*Proceedings of the 44th IEEE Symposium on Security and Privacy (Oakland)*'
 ---
