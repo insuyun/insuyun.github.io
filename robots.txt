@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: https://insuyun.github.io/sitemap.xml
