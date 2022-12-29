@@ -209,6 +209,7 @@ def bib_to_tex(conf_dict, pub_entries):
 
         if entry['ENTRYTYPE'] == 'phdthesis':
             conf['title'] = 'Ph.D. thesis, %s' % entry['school']
+            continue
 
         # XXX: Fix this... so bad design
         entry['author'] = entry['author'].replace('\\*', '*')
