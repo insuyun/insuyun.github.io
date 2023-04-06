@@ -222,7 +222,9 @@ def bib_to_tex(conf_dict, pub_entries):
         if 'address' in conf:
             location += '%s, ' % conf['address']
 
-        location += '%s %s' % (conf['month'], conf['year'])
+        if 'month' in conf:
+            location += '%s ' % conf['month']
+        location += '%s' % (conf['year'])
         content.append(location)
 
         if 'award' in entry:
