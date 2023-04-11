@@ -2,6 +2,7 @@
 import os
 import copy
 import bibtexparser
+import pandas as pd
 from bibtexparser.bparser import BibTexParser
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
@@ -91,7 +92,7 @@ def make_cve():
 def get_conf(confs, entry):
     if 'crossref' in entry:
         return confs[entry['crossref']]
-    
+
     conf = copy.copy(entry)
     if 'booktitle' in entry:
         conf['title'] = entry['booktitle']
@@ -120,6 +121,10 @@ def bib_to_tex(confs, pub_entries):
         location += '%s' % (conf['year'])
         content.append(location)
 
+        if 'acceptance_rate' in conf:
+            content[-1] += LB
+            content.append('  (Acceptance rates: ' + conf['acceptance_rate'] + ')')
+
         if 'award' in entry:
             content[-1] += LB
             content.append('  ' + tex_highlight('$\\bullet$ %s' % entry['award']))
@@ -127,6 +132,29 @@ def bib_to_tex(confs, pub_entries):
         content += ['}', '']
         text += '\n'.join(content)
     return text
+
+def add_acceptance_rate(entry):
+    def normalize(ID):
+        ID = ID[:-2]
+        if ID == 'SP':
+            return 'Oakland'
+        if ID == 'SEC':
+            return 'UsenixSec'
+        if ID == 'ATC':
+            return 'USENIX-ATC'
+        return ID
+    csv_file = os.path.join(os.path.dirname(__file__), 'csconferences.csv')
+    df = pd.read_csv(csv_file)
+    df2 = df.loc[
+            (df['Year'] == int(entry['year'])) &
+            (df['Conference'] == normalize(entry['ID']))]
+
+    if not df2.empty:
+        accepted = df2['Accepted'].sum()
+        submitted = df2['Submitted'].sum()
+        rate = round((accepted / submitted) * 100)
+        entry['acceptance_rate'] = f"{rate}\%, {accepted}/{submitted}"
+
 
 class MultiBibTexParser():
     def __init__(self, root_dir):
@@ -148,6 +176,7 @@ class MultiBibTexParser():
             if title.endswith(')'):
                 assert(title.endswith(')'))
                 entry['title'] = title[:-1] + ' ' + entry['year'] + title[-1:]
+            add_acceptance_rate(entry)
             conf[entry['ID']] = entry
 
         return conf
