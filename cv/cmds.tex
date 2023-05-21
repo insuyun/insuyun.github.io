@@ -1,10 +1,9 @@
 \newcommand\email[1]{\href{mailto:#1}{#1}}
 \newcommand{\sectiontitle}[1]{\vspace{1em}\textbf{\Large \textsc{#1}}\vspace{0.5em}\hrule}
-
 \newcommand{\subsectiontitle}[3][]{{\bf #2}\ifthenelse{\equal{#1}{}}{}{, #1}
 \hfill {#3}}
 
-\newenvironment{centry}[3][]
+\newenvironment{topic}[3][]
 {
   \subsectiontitle[#1]{#2}{#3}\vspace{-0.5em}
 	\begin{itemize}[leftmargin=1.5em]
@@ -16,9 +15,9 @@
 	\end{itemize}
 }
 
-\newcommand{\citem}[2]{\item {#1 \hfill {#2} \vspace{0em}}}
+\newcommand{\entry}[2]{\item {#1 \hfill {#2} \vspace{0em}}}
 
-\newenvironment{subcentry}
+\newenvironment{subtopic}
 {
   \begin{itemize}[label=$\bullet$]
   \vspace{-5px}
