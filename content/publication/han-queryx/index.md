@@ -1,8 +1,7 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: 'QueryX: Symbolic Query on Decompiled Code for Finding Bugs in COTS Binaries
-  (to appear)'
+title: 'QueryX: Symbolic Query on Decompiled Code for Finding Bugs in COTS Binaries'
 subtitle: ''
 summary: ''
 authors:
@@ -15,7 +14,7 @@ authors:
 tags: []
 categories: []
 date: '2023-05-01'
-lastmod: 2022-11-11T04:22:59+09:00
+lastmod: 2023-06-06T22:16:03+09:00
 featured: false
 draft: false
 
@@ -33,9 +32,11 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2022-11-10T19:22:59.856581Z'
+publishDate: '2023-06-06T13:16:03.808075Z'
 publication_types:
 - '0'
 abstract: ''
 publication: '*Proceedings of the 44th IEEE Symposium on Security and Privacy (Oakland)*'
+url_slides: pubs/2023/han:queryx-slides.pdf
+url_paper: pubs/2023/han:queryx.pdf
 ---
