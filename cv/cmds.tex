@@ -27,3 +27,9 @@
 }
 
 \newcommand{\cc}[1]{\mbox{\smaller[0.5]\texttt{#1}}}
+
+\usepackage{etoolbox}
+\newtoggle{KAIST}
+\toggletrue{KAIST}
+\newcommand{\forkaist}[2]{\iftoggle{KAIST}{#1}{#2}}
+\newcommand{\toptier}[1]{\forkaist{\textcolor{magenta}{#1}}{#1}}

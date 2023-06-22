@@ -3,6 +3,7 @@ import os
 import copy
 import bibtexparser
 import pandas as pd
+import re
 from bibtexparser.bparser import BibTexParser
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
@@ -127,7 +128,7 @@ def bib_to_tex(confs, pub_entries):
 
         if 'award' in entry:
             content[-1] += LB
-            content.append('  ' + tex_highlight('$\\bullet$ %s' % entry['award']))
+            content.append('  ' + tex_highlight('\\textcolor{red}{%s}' % entry['award']))
 
         content += ['}', '']
         text += '\n'.join(content)
@@ -156,6 +157,10 @@ def add_acceptance_rate(entry):
         entry['acceptance_rate'] = f"{rate}\%, {accepted}/{submitted}"
 
 
+def is_top_tier(ID):
+    ID = ID[:-2]
+    return ID in ['CCS', 'SEC', 'NDSS', 'SP', 'OSDI', 'ATC']
+
 class MultiBibTexParser():
     def __init__(self, root_dir):
         self.root_dir = root_dir
@@ -176,6 +181,8 @@ class MultiBibTexParser():
             if title.endswith(')'):
                 assert(title.endswith(')'))
                 entry['title'] = title[:-1] + ' ' + entry['year'] + title[-1:]
+                if is_top_tier(entry['ID']):
+                    entry['title'] = re.sub(r'\((.*)\)', r'(\\toptier{\1})', entry['title'])
             add_acceptance_rate(entry)
             conf[entry['ID']] = entry
 
