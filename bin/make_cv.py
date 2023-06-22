@@ -128,7 +128,10 @@ def bib_to_tex(confs, pub_entries):
 
         if 'award' in entry:
             content[-1] += LB
-            content.append('  ' + tex_highlight('\\textcolor{red}{%s}' % entry['award']))
+            if 'CSAW' in entry['award']:
+                content.append('  ' + tex_highlight('\\textcolor{blue}{%s}' % entry['award']))
+            else:
+                content.append('  ' + tex_highlight('\\textcolor{red}{%s}' % entry['award']))
 
         content += ['}', '']
         text += '\n'.join(content)
