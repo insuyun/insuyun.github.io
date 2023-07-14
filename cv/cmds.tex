@@ -5,8 +5,8 @@
 
 \newenvironment{topic}[3][]
 {
-  \subsectiontitle[#1]{#2}{#3}\vspace{-0.5em}
-	\begin{itemize}[leftmargin=1.5em]
+  \subsectiontitle[#1]{#2}{#3}\vspace{-0.3em}
+	\begin{itemize}[leftmargin=.5em]
     \small
 		\renewcommand\labelitemi{}
 		\itemsep=-0.4em
@@ -15,7 +15,7 @@
 	\end{itemize}
 }
 
-\newcommand{\entry}[2]{\item {#1 \hfill {#2} \vspace{0em}}}
+\newcommand{\entry}[2]{\item {\parbox[t]{0.78\textwidth}{#1} \hfill {#2} \vspace{0em}}}
 
 \newenvironment{subtopic}
 {

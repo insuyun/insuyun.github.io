@@ -5,6 +5,8 @@
 \include{pkgs}
 \input{cmds}
 
+\usepackage{kotex}
+
 \begin{document}
 
 % Name, phone, email, address
@@ -66,14 +68,14 @@ System security, software security, binary analysis, fuzzing, and applied crypto
 
 \sectiontitle{Publications}
 
-\textbf{International Conferences \forkaist{(\toptier{Top-tier} and others)}{}}
-\begin{etaremune}
-  {{ INTL_CONF }}
-\end{etaremune}
-
 \textbf{International Journal}
 \begin{etaremune}
   {{ INTL_JOURNAL }}
+\end{etaremune}
+
+\textbf{International Conferences \forkaist{(\toptier{Top-tier} and others)}{}}
+\begin{etaremune}
+  {{ INTL_CONF }}
 \end{etaremune}
 
 \textbf{Domestic Conferences}
@@ -131,6 +133,14 @@ Atlanta, GA, December 2020
 \sectiontitle{Teaching Experience}
 % \textbf{Instructor}
 \begin{topic}{}{}
+  \entry{Software Hacking  Theory and Practice (EE517 at KAIST)}{Spring 2023}
+  \begin{subtopic}
+    \item Evaluation --  Average: 4.54 / 5
+  \end{subtopic}
+  \entry{My Life and Career in EE I (EE485-C at KAIST)}{Spring 2023}
+  \begin{subtopic}
+    \item Evaluation --  Average: 4.80 / 5
+  \end{subtopic}
   \entry{Programming Structures for Electronical Engineering (EE209 at KAIST)}{Fall 2022}
   \begin{subtopic}
     \item Evaluation --  Average: 4.65 / 5
@@ -210,29 +220,73 @@ Atlanta, GA, December 2020
   \entry{Codegate CTF 2009, 4th place (Team GoN)}{Apr. 2009}
 \end{topic}
 %
-\begin{topic}{\forkaist{Vulnerability discovery reward}{Bug bounty} (by me)}{}
+\begin{topic}{Scholarships}{}
+  \entry{National Research Foundation of Korea Scholarship for Undergraduate}{Mar. 2008 -- Dec. 2013}
+\end{topic}
+
+\sectiontitle{Vulnerability Discovery Reward (aka Bug bounty)}
+To summarize, \$113K bug bounties are awarded so far.
+
+% TODO: Add type confusion
+\begin{topic}{With my students}{}
+  \entry{Type confusion in V8 (\$7,000), Google, by Haein Lee}{Mar. 2023}
+  \entry{NAS authentication bypass in Exynos (\$14,760), Samsung Electronics, by Eunsoo Kim and CheolJun Park}{Feb. 2022}
+\end{topic}
+%
+
+\begin{topic}{By myself}{}
   \entry{PSV-2021-0304: afpd auth bypass (\$300), NETGEAR}{Mar. 2021}
-  \item{Pwn2Own Apple Safari with a kernel privilege escalation (\$70,000), Zero Day Initiative, }
-    \entry{\quad with Yonghwi Jin and Jungwon Lim}{Mar. 2020}
+  \entry{Pwn2Own Apple Safari with a kernel privilege escalation (\$70,000), Zero Day Initiative,
+    with Yonghwi Jin and Jungwon Lim}{Mar. 2020}
   \entry{Apple Safari sandbox escape (\$20,000), Apple}{Dec. 2019}
   \entry{Three integer overflow vulnerabilities in PHP (\$1,500), the Internet Bug Bounty}{Jun. 2016}
   \entry{An Integer Overflow in Python zipimport (\$1,000), the Internet Bug Bounty}{Apr. 2016}
 \end{topic}
 
-% TODO: Add type confusion
-\begin{topic}{\forkaist{Vulnerability discovery reward}{Bug bounty} (by students)}{}
-  \entry{Type confusion in V8 (\$7,000), Google, by Haein Lee}{Mar. 2023}
-  \entry{LTE authentication bypass in Exynos (\$14,760), Samsung, by Eunsoo Kim and CheolJun Park}{Feb. 2022}
-\end{topic}
-%
-\begin{topic}{Scholarships}{}
-  \entry{National Research Foundation of Korea Scholarship for Undergraduate}{Mar. 2008 -- Dec. 2013}
-\end{topic}
 
 \begin{comment}
 \sectiontitle{Reported Security Vulnerabilities}
   {{ CVE }}
 \end{comment}
+
+\sectiontitle{Patents}
+\newcommand{\patent}[5]{
+  \item{\textbf{#1}}{}
+  \begin{itemize}[label=]
+    \setlength\itemsep{-0.5em}
+    \vspace{-5px}
+    \item Inventors: #2
+    \item Registration date: #3
+    \item Patent number: #4
+    \item Country: #5
+  \end{itemize}
+}
+
+\newcommand{\patentpending}[5]{
+  \item{\textbf{#1 (Pending)}}{}
+  \begin{itemize}[label=]
+    \setlength\itemsep{-0.5em}
+    \vspace{-5px}
+    \item Inventors: #2
+    \item Application date: #3
+    \item Application number: #4
+    \item Country: #5
+  \end{itemize}
+}
+
+\textbf{International}
+\begin{etaremune}
+  \patentpending{Security analysis system and method based on negative testing for protocol implementation of LTE device}{Yongdae Kim, Cheoljun Park, Sangwook Bae, Beomseok Oh, Jiho Lee, Mincheol Son, Insu Yun}{2022.10.05}{17960246}{US}
+  \patent{Reverse debugging of software failures}{Weidong Cui, Xinyang Ge, Baris Kasikci, Cengiz Can, Ben Niu, Ruoyu Wang, Insu Yun}{10565511}{2020.02.18}{US}
+\end{etaremune}
+
+\textbf{Domestic}
+\begin{etaremune}
+  \patent{LTE 단말기의 프로토콜 구현에 대한 네거티브 테스팅 기반 보안 분석 시스템 및 그 방법}{김용대, 박철준, 배상욱, 오범석, 이지호, 손민철, 윤인수}{10-2514797-0000}{2023.03.23}{Korea}
+  \patent{이동통신 표준 문서를 기반으로 이동통신 베이스밴드 소프트웨어를 자동으로 비교 분석하는 방법 및 시스템}{김용대, 김은수, 김동관, 박철준, 윤인수}{10-2546946-0000}{2023.06.20}{Korea}
+  \patentpending{키 관리 서비스 제공방법 및 이를 위한 시스템}{한동수, 한주형, 윤인수}{10-2021-0154174}{2021.11.10}{Korea}
+  \patentpending{LTE 단말기의 프로토콜 구현에 대한 네거티브 테스팅 기반 보안 분석 시스템}{김용대, 박철준, 배상욱, 오범석, 이지호, 손민철, 윤인수}{10-2021-0133149}{2021.10.07}{Korea}
+\end{etaremune}
 
 % Invited Talks
 \sectiontitle{Invited Talks}
@@ -351,32 +405,67 @@ Atlanta, GA, December 2020
 
 
 \end{topic}
+\sectiontitle{Grants}
+\newcommand{\grant}[5]{
+  \entry{\textbf{#1}}{#5}
+  \begin{itemize}[label=]
+    \setlength\itemsep{-0.5em}
+    \vspace{-5px}
+    \item Agency/Company: #2
+    \item Money: \$#3
+    \item Role: #4
+  \end{itemize}
+}
 
+To summarize, \$1.4 million is awarded, and my portion is \$0.93 million.
+Please note that I have accounted for the exchange rate of 1,000 won to one dollar.
+\vspace{-10px}
+
+\begin{topic}{}{}
+  \grant{Building a system to assist variant analysis for browser}{NRF}{65K}{PI}{23.06 -- 24.05}
+  \grant{Developing a security model based on intermediate language in JavaScript}{NSRI}{54.5K}{PI}{23.04 -- 23.10}
+  \grant{Studying security threats and safety of open-sourced operating systems}{NSRI}{54.5K}{PI}{23.04 -- 23.10}
+  \grant{Automated exploit generation framework for multi-type kernel bugs}{CISC}{100K}{PI}{23.02 -- 23.11}
+  \grant{Browser fuzzing using cross-architecture formal verification}{NRF}{110K}{PI}{22.09 -- 23.09}
+  \grant{Constructing test cases for validating vulnerability detection}{ETRI}{27.3K}{PI}{22.08 -- 22.11}
+  \grant{Developing security model based for testing JavaScript}{NSRI}{54.5K}{PI}{22.04 -- 22.10}
+  \grant{Event-driven systems for collecting and analyzing automotive artifacts}{Dankook University Industry-Academia Cooperation Team}{300K $\times$ 0.5}{PI with Prof. Yujip Won}{22.04 -- 23.12}
+
+  \grant{6G security}{Samsung Electronics}{200K $\times$ 0.2}{Co-PI with Prof. Yongdae Kim}{21.08 -- 23.09}
+  \grant{DRAM security}{Samsung Electronics}{180K $\times$ 0.2}{Co-PI with Prof. Yongdae Kim}{21.07 -- 24.06}
+
+  \grant{Systematic and precise transformation of the Qualcomm Hexagon architecture into intermediate representations for binary analysis}{NRF}{46.7K}{PI}{21.06 -- 22.05}
+  \grant{Automatic generating security models for web browser vulnerability}{NSRI}{54.5K}{PI}{21.04 -- 21.10}
+  \grant{Scalable cyber reasoning systems (Start-up)}{KAIST}{150K}{PI}{21.02 -- 24.12}
+\end{topic}
 
 \sectiontitle{Advising and Mentoring}
-\begin{itemize}
-  \item \textbf{Ph.D./M.S Students}
-    \begin{topic}{}{}
-      \entry{Haein Lee}{Starting from Spring 2022}
+\newcommand{\alumni}[3]{
+  \entry{#1, #2}{#3}
+}
+  \textbf{Ph.D./M.S Students}
+  \begin{topic}{}{}
+      \entry{- Eunkyu Lee}{Fall 2023}
     \end{topic}
 
-  \item \textbf{M.S. Students}
+  \textbf{Ph.D./M.S Students}
     \begin{topic}{}{}
-      \entry{Minwoo Baek}{Starting from Spring 2022}
-      \entry{Wonyeong Jung}{Starting from Spring 2022}
-      \entry{Junyeong Park}{Starting from Spring 2022}
-      \entry{Dongok Kim}{Starting from Spring 2023}
+      \entry{- Haein Lee}{Spring 2022}
     \end{topic}
 
-  \item \textbf{Alumni}
+  \textbf{M.S. Students}
     \begin{topic}{}{}
-      \entry{Hyunsik Jeong (Co-advising with Yongdae Kim)}{M.S. in Fall 2021} \\
-      % TODO: Publication
-      First employment: S2W
-
-      \entry{Hyunseok Han (Co-advising with Yongdae Kim)}{Ph.D. in Fall 2022} \\
-      First employment: Postdoc at Georgia Tech
+      \entry{- Minwoo Baek}{Spring 2022}
+      \entry{- Wonyeong Jung}{Spring 2022}
+      \entry{- Junyeong Park}{Spring 2022}
+      \entry{- Dongok Kim}{Spring 2023}
+      \entry{- Seunggi Min}{Fall 2023}
     \end{topic}
-\end{itemize}
+
+  \textbf{Alumni}
+    \begin{topic}{}{}
+      \alumni{- Hyunsik Jeong (Co-advising with Yongdae Kim)}{S2W}{M.S. in Fall 2021}
+      \alumni{- Hyunseok Han (Co-advising with Yongdae Kim)}{Postdoc at Georgia Tech}{Ph.D. in Fall 2022}
+    \end{topic}
 
 \end{document}
