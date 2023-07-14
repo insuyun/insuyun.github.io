@@ -5,7 +5,7 @@
 \include{pkgs}
 \input{cmds}
 
-\usepackage{kotex}
+% \usepackage{kotex}
 
 \begin{document}
 
@@ -280,12 +280,13 @@ To summarize, \$113K bug bounties are awarded so far.
   \patent{Reverse debugging of software failures}{Weidong Cui, Xinyang Ge, Baris Kasikci, Cengiz Can, Ben Niu, Ruoyu Wang, Insu Yun}{10565511}{2020.02.18}{US}
 \end{etaremune}
 
+\pagebreak
+
 \textbf{Domestic}
 \begin{etaremune}
-  \patent{LTE 단말기의 프로토콜 구현에 대한 네거티브 테스팅 기반 보안 분석 시스템 및 그 방법}{김용대, 박철준, 배상욱, 오범석, 이지호, 손민철, 윤인수}{10-2514797-0000}{2023.03.23}{Korea}
-  \patent{이동통신 표준 문서를 기반으로 이동통신 베이스밴드 소프트웨어를 자동으로 비교 분석하는 방법 및 시스템}{김용대, 김은수, 김동관, 박철준, 윤인수}{10-2546946-0000}{2023.06.20}{Korea}
-  \patentpending{키 관리 서비스 제공방법 및 이를 위한 시스템}{한동수, 한주형, 윤인수}{10-2021-0154174}{2021.11.10}{Korea}
-  \patentpending{LTE 단말기의 프로토콜 구현에 대한 네거티브 테스팅 기반 보안 분석 시스템}{김용대, 박철준, 배상욱, 오범석, 이지호, 손민철, 윤인수}{10-2021-0133149}{2021.10.07}{Korea}
+\patent{Security analysis system and method based on negative testing for protocol implementation of LTE device}{Yongdae Kim, CheolJun Park, Sangwook Bae, BeomSeok Oh, Jiho Lee, Eunkyu Lee, Insu Yun}{10-2514797-0000}{2023.03.23}{Korea}
+  \patent{Method and system for automatically analyzing bugs in cellular baseband software using comparative analysis based on cellular specifications}{Yongdae Kim, Eunsoo Kim, Dongkwan Kim, CheolJun Park, Insu Yun}{10-2546946-0000}{2023.06.20}{Korea}
+  \patentpending{Methods and systems for key management service provision}{Dongsoo Han, JuHyeng Han, Insu Yun}{10-2021-0154174}{2021.11.10}{Korea}
 \end{etaremune}
 
 % Invited Talks
@@ -422,21 +423,19 @@ Please note that I have accounted for the exchange rate of 1,000 won to one doll
 \vspace{-10px}
 
 \begin{topic}{}{}
-  \grant{브라우저용 변이 분석 보조 시스템 구축}{NRF}{65K}{PI}{23.06 -- 24.05}
-  \grant{자바스크립트 중간 언어 기반 보안모델 생성 연구}{NSRI}{54.5K}{PI}{23.04 -- 23.10}
-  \grant{개방형 OS 보안 위협 안전성 검증기술 연구}{NSRI}{54.5K}{PI}{23.04 -- 23.10}
-  \grant{다종 커널 버그 분석 및 공격 코드 자동화 프레임워크 연구}{CISC}{100K}{PI}{23.02 -- 23.11}
-  \grant{크로스 아키텍처의 정형 검증을 이용한 브라우저 퍼징}{NRF}{110K}{PI}{22.09 -- 23.09}
-  \grant{취약점 탐지 검증용 테스트 케이스 구축}{ETRI}{27.3K}{PI}{22.08 -- 22.11}
-  \grant{자바스크립트 엔진 안전성 분석을 위한 보안모델 생성 연구}{NSRI}{54.5K}{PI}{22.04 -- 22.10}
-  \grant{이벤트 기반 실험시스템 구축을 통한 자동차 내·외부 아티팩트 수집 및 통합 분석 기술 개발}{단국대산학협력단}{300K $\times$ 0.5}{PI with Prof. Yujip Won}{22.04 -- 23.12}
-
-  \grant{6G 보안기술연구}{Samsung Electronics}{200K $\times$ 0.2}{Co-PI with Prof. Yongdae Kim}{21.08 -- 23.09}
-  \grant{DRAM Security 기술연구}{Samsung Electronics}{180K $\times$ 0.2}{Co-PI with Prof. Yongdae Kim}{21.07 -- 24.06}
-
-  \grant{바이너리 분석을 위한 체계적이고 정확한 퀄컴 헥사곤 구조의 중간 표현 변환}{NRF}{46.7K}{PI}{21.06 -- 22.05}
-  \grant{웹 브라우저 취약점 탐색을 위한 보안모델 자동 생성 연구}{NSRI}{54.5K}{PI}{21.04 -- 21.10}
-  \grant{확장성 있는 사이버 추론 시스템의 개발 (Start-up)}{KAIST}{150K}{PI}{21.02 -- 24.12}
+  \grant{Building a system to assist variant analysis for browser}{NRF}{65K}{PI}{23.06 -- 24.05}
+  \grant{Generating a security model based on JavaScript intermediate language}{NSRI}{54.5K}{PI}{23.04 -- 23.10}
+  \grant{Verifying security threats in open-source operating systems}{NSRI}{54.5K}{PI}{23.04 -- 23.10}
+  \grant{An automated framework that generates exploit for multi-type kernel bugs}{CISC}{100K}{PI}{23.02 -- 23.11}
+  \grant{Browser fuzzing with formal verification for cross architectures}{NRF}{110K}{PI}{22.09 -- 23.09}
+  \grant{Building test suites for validating vulnerability detection}{ETRI}{27.3K}{PI}{22.08 -- 22.11}
+  \grant{Generating a security model based on JavaScript security analysis}{NSRI}{54.5K}{PI}{22.04 -- 22.10}
+  \grant{Developing techniques for collection and integrated analysis of automotive systems through event-based experimental systems}{Dankook university}{300K $\times$ 0.5}{PI working with Prof. Yujip Won}{22.04 -- 23.12}
+  \grant{6G security}{Samsung Electronics}{200K $\times$ 0.2}{Co-PI with Prof. Yongdae Kim}{21.08 -- 23.09}
+  \grant{DRAM security}{Samsung Electronics}{180K $\times$ 0.2}{Co-PI with Prof. Yongdae Kim}{21.07 -- 24.06}
+  \grant{Systematic and precise transformation of the Qualcomm Hexagon architecture into intermediate representations for binary analysis}{NRF}{46.7K}{PI}{21.06 -- 22.05}
+  \grant{Automatically generating a security model for discovering web browser vulnerabilities}{NSRI}{54.5K}{PI}{21.04 -- 21.10}
+  \grant{Developing a scalable cyber reasoning system (Start-up)}{KAIST}{150K}{PI}{21.02 -- 24.12}
 \end{topic}
 
 \sectiontitle{Advising and Mentoring}
