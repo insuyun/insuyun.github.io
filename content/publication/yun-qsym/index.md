@@ -13,7 +13,7 @@ authors:
 tags: []
 categories: []
 date: '2018-08-01'
-lastmod: 2022-08-04T15:47:28+09:00
+lastmod: 2023-09-01T08:33:23+09:00
 featured: false
 draft: false
 
@@ -31,7 +31,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2022-08-04T06:47:28.171527Z'
+publishDate: '2023-08-31T23:33:23.214010Z'
 publication_types:
 - '0'
 abstract: "Recently, hybrid fuzzing has been proposed to address the limitations of\n\

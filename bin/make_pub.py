@@ -59,6 +59,9 @@ def create_meta_fields(entry):
 
             # Make award bold
             if page_key == 'award':
+                # Remove xxx out of yyy
+                if ' (' in value:
+                    value = value.split(' (')[0]
                 meta_fields[page_key] = f"**{value}**"
 
     # Support co-first authors
