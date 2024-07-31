@@ -47,6 +47,9 @@ def purify_bib_entry(entry):
         # alphabetic order
         if entry['ID'] in ALPHABETIC:
             entry['author'] += ' (alphabetical)'
+
+    if 'attributes' in entry:
+        entry['attributes'] = entry['attributes'].replace(' ', '').split(',')
     return entry
 
 def replace_text(text, key, content):
@@ -210,14 +213,28 @@ class MultiBibTexParser():
 
 def make_cv():
     def filter_domestic(entry):
-        return 'crossref' in entry and \
-            any(entry['crossref'].startswith(conf) for conf in DOMESTIC_CONFS)
+        return 'domestic' in entry.get('attributes', [])
+    
+    def filter_intl(entry):
+        return not filter_domestic(entry)
+
+    def filter_nopub(entry):
+        return 'nopub' in entry.get('attributes', [])
+
+    def filter_pub(entry):
+        return not filter_nopub(entry)
+
+    def filter_conf(entry):
+        return filter_pub(entry) and entry['ENTRYTYPE'] == 'inproceedings'
+
+    def filter_journal(entry):
+        return filter_pub(entry) and entry['ENTRYTYPE'] == 'article'
 
     def filter_intl_conf(entry):
-        return entry['ENTRYTYPE'] == 'inproceedings' and not filter_domestic(entry)
+        return filter_conf(entry) and filter_intl(entry)
 
     def filter_intl_journal(entry):
-        return entry['ENTRYTYPE'] == 'article'
+        return filter_journal(entry) and filter_intl(entry)
 
     with open(os.path.join(ROOT, 'cv/cv.tex'), encoding='utf-8') as f:
         txt = f.read()
@@ -232,6 +249,10 @@ def make_cv():
 
         filtered = parser.filter(filter_domestic)
         txt = replace_text(txt, 'DOM_CONF', filtered.to_tex())
+
+        filtered = parser.filter(filter_nopub)
+        print(filtered.to_tex())
+        txt = replace_text(txt, 'NOPUB', filtered.to_tex())
 
         # Should we support domestic journal?
 
