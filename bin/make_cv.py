@@ -219,6 +219,7 @@ def make_cv():
         return not filter_domestic(entry)
 
     def filter_nopub(entry):
+        return False
         return 'nopub' in entry.get('attributes', [])
 
     def filter_pub(entry):
@@ -250,9 +251,9 @@ def make_cv():
         filtered = parser.filter(filter_domestic)
         txt = replace_text(txt, 'DOM_CONF', filtered.to_tex())
 
-        filtered = parser.filter(filter_nopub)
-        print(filtered.to_tex())
-        txt = replace_text(txt, 'NOPUB', filtered.to_tex())
+        # filtered = parser.filter(filter_nopub)
+        # print(filtered.to_tex())
+        # txt = replace_text(txt, 'NOPUB', filtered.to_tex())
 
         # Should we support domestic journal?
 
