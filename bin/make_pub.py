@@ -18,7 +18,8 @@ _ROOT = os.path.dirname(__file__)
 META_FIELD_MAPPING = {
     'www-url': 'url_web',
     'www-git': 'url_code',
-    'award': 'award'
+    'award': 'award',
+    'attributes': None
 }
 
 def read_conf():
