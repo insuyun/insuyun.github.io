@@ -11,7 +11,8 @@ weight: 20
 design:
     columns: "2"
 ---
-
+- Fall 2024: [Information Security Laboratory (IS521)](https://teemo.kaist.ac.kr/is521/2024)
+- Fall 2024: [Advanced Programming Techniques for EE (EE309)](https://teemo.kaist.ac.kr/ee309/2024)
 - Spring 2024: [Software Hacking Practice and Theory (EE517)](https://teemo.kaist.ac.kr/ee517/2024)
 - Fall 2023: [Advanced Programming Techniques for EE (EE309)](https://teemo.kaist.ac.kr/ee309/2023)
 - Spring 2023: [Software Hacking Practice and Theory (EE517)](https://teemo.kaist.ac.kr/ee517/2023)

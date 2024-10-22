@@ -6,12 +6,12 @@ subtitle: ''
 summary: ''
 authors:
 - Junyoung Park
-- Yunho Kim+
-- Insu Yun+
+- Yunho Kim
+- Insu Yun
 tags: []
 categories: []
 date: '2025-05-01'
-lastmod: 2024-10-22T15:40:20+09:00
+lastmod: 2024-10-22T15:49:50+09:00
 featured: false
 draft: false
 
@@ -29,7 +29,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2024-10-22T06:40:20.436896Z'
+publishDate: '2024-10-22T06:49:50.145074Z'
 publication_types:
 - '0'
 abstract: ''
