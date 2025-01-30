@@ -165,7 +165,7 @@ def add_acceptance_rate(entry):
 
 def is_top_tier(ID):
     ID = ID[:-2]
-    return ID in ['CCS', 'SEC', 'NDSS', 'SP', 'OSDI', 'ATC']
+    return ID in ['CCS', 'SEC', 'NDSS', 'SP', 'OSDI', 'ATC', 'OOPSLA']
 
 class MultiBibTexParser():
     def __init__(self, root_dir):
@@ -214,7 +214,7 @@ class MultiBibTexParser():
 def make_cv():
     def filter_domestic(entry):
         return 'domestic' in entry.get('attributes', [])
-    
+
     def filter_intl(entry):
         return not filter_domestic(entry)
 
