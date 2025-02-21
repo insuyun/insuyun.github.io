@@ -6,7 +6,7 @@ title: Insu Yun (윤인수)
 superuser: true
 
 # Role/position/tagline
-role: Assistant Professor
+role: Associate Professor (Untenured)
 
 # Organizations/Affiliations to show in About widget
 organizations:
@@ -67,7 +67,7 @@ email: ""
 highlight_name: true
 ---
 
-Insu Yun is an assistant professor at KAIST, currently leading [Hacking Lab](https://hacking.kaist.ac.kr/). He is interested in system
+Insu Yun is an associate professor (untenured) at KAIST, currently leading [Hacking Lab](https://hacking.kaist.ac.kr/). He is interested in system
 security in general, especially, binary analysis, automatic vulnerability
 detection, and automatic exploit generation. His work has been published to the
 major computer conferences such as IEEE Security & Privacy, USENIX Security,

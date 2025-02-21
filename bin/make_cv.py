@@ -251,7 +251,6 @@ def make_cv():
         txt = replace_text(txt, 'DOM_CONF', filtered.to_tex())
 
         filtered = parser.filter(filter_nopub)
-        print(filtered.to_tex())
         txt = replace_text(txt, 'NOPUB', filtered.to_tex())
 
     out = os.path.join(ROOT, 'cv/cv-gen.tex')
