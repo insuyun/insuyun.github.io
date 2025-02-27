@@ -5,11 +5,10 @@ import bibtexparser
 import pandas as pd
 import re
 from bibtexparser.bparser import BibTexParser
+from pathlib import Path
+from utils import setup_hugo
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
-CONTENT_DIR = os.path.join(ROOT, "content")
-
-NEWS_NUM = 8
 MY_NAME = 'Insu Yun'
 
 LB = ' \\\\'
@@ -21,6 +20,8 @@ ALPHABETIC = ['cui:rept']
 DOMESTIC_CONFS = [
     'CISC'
 ]
+
+CS_CONFERENCES = pd.read_csv(os.path.join(ROOT, 'bin/csconferences.csv'))
 
 def authors_to_string(authors):
     if len(authors) == 1:
@@ -140,32 +141,46 @@ def bib_to_tex(confs, pub_entries):
         text += '\n'.join(content)
     return text
 
-def add_acceptance_rate(entry):
-    def normalize(ID):
-        ID = ID[:-2]
-        if ID == 'SP':
-            return 'Oakland'
-        if ID == 'SEC':
-            return 'UsenixSec'
-        if ID == 'ATC':
-            return 'USENIX-ATC'
-        return ID
-    csv_file = os.path.join(os.path.dirname(__file__), 'csconferences.csv')
-    df = pd.read_csv(csv_file)
-    df2 = df.loc[
-            (df['Year'] == int(entry['year'])) &
-            (df['Conference'] == normalize(entry['ID']))]
+def normalize_for_csconferences(ID):
+    ID = ID[:-2]
+    if ID == 'SP':
+        return 'Oakland'
+    if ID == 'SEC':
+        return 'UsenixSec'
+    if ID == 'ATC':
+        return 'USENIX-ATC'
+    return ID
 
-    if not df2.empty:
-        accepted = df2['Accepted'].sum()
-        submitted = df2['Submitted'].sum()
+def is_top_tier(ID):
+    df = CS_CONFERENCES.loc[
+        (CS_CONFERENCES['Conference'] == normalize_for_csconferences(ID))
+    ]
+    return not df.empty
+
+def add_acceptance_rate(entry):
+    df = CS_CONFERENCES.loc[
+            (CS_CONFERENCES['Year'] == int(entry['year'])) &
+            (CS_CONFERENCES['Conference'] == normalize_for_csconferences(entry['ID']))]
+
+    if not df.empty:
+        accepted = df['Accepted'].sum()
+        submitted = df['Submitted'].sum()
         rate = round((accepted / submitted) * 100)
         entry['acceptance_rate'] = f"{rate}\%, {accepted}/{submitted}"
 
+def transform_title(entry):
+    match = re.search(r'\((.*)\)', entry['title'])
+    if not match:
+        return
+    
+    if is_top_tier(entry['ID']):
+        replace = rf'(\toptier{{{match.group(1)} {entry["year"]}}})'
+    else:
+        replace = rf'({match.group(1)} {entry["year"]})'
 
-def is_top_tier(ID):
-    ID = ID[:-2]
-    return ID in ['CCS', 'SEC', 'NDSS', 'SP', 'OSDI', 'ATC', 'OOPSLA']
+    entry['title'] = re.sub(r' \((.*)\)', "", entry['title'])
+    entry['title'] = entry['title'] + ' ' + replace
+
 
 class MultiBibTexParser():
     def __init__(self, root_dir):
@@ -183,12 +198,7 @@ class MultiBibTexParser():
         for entry in conf_entries:
             # Add year to its nick
             # e.g., (SECURITY) -> (SECURITY 2019)
-            title = entry['title']
-            if title.endswith(')'):
-                assert(title.endswith(')'))
-                entry['title'] = title[:-1] + ' ' + entry['year'] + title[-1:]
-                if is_top_tier(entry['ID']):
-                    entry['title'] = re.sub(r'\((.*)\)', r'(\\toptier{\1})', entry['title'])
+            transform_title(entry)
             add_acceptance_rate(entry)
             conf[entry['ID']] = entry
 
@@ -209,7 +219,6 @@ class MultiBibTexParser():
         new = copy.copy(self)
         new.pub = list(filter(filter_fn, self.pub))
         return new
-
 
 def make_cv():
     def filter_domestic(entry):
@@ -235,6 +244,8 @@ def make_cv():
 
     def filter_intl_journal(entry):
         return filter_journal(entry) and filter_intl(entry)
+
+    setup_hugo()
 
     with open(os.path.join(ROOT, 'cv/cv.tex'), encoding='utf-8') as f:
         txt = f.read()

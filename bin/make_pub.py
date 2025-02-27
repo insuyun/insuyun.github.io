@@ -11,6 +11,8 @@ from bibtexparser.bibdatabase import BibDatabase
 from academic.import_bibtex import parse_bibtex_entry, slugify
 from academic.editFM import EditableFM
 
+from utils import setup_hugo
+
 _ROOT = os.path.dirname(__file__)
 
 # A mapping from .bib field to a academic field.
@@ -153,6 +155,7 @@ def update_resources(page, entry):
         page.fm['url_paper'] = os.path.relpath(paper, static_dir)
 
 def main():
+    setup_hugo()
     confs = read_conf()
 
     parser = BibTexParser(common_strings=True)
