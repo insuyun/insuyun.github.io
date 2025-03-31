@@ -6,7 +6,6 @@ import pandas as pd
 import re
 from bibtexparser.bparser import BibTexParser
 from pathlib import Path
-from utils import setup_hugo
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 MY_NAME = 'Insu Yun'
@@ -172,7 +171,7 @@ def transform_title(entry):
     match = re.search(r'\((.*)\)', entry['title'])
     if not match:
         return
-    
+
     if is_top_tier(entry['ID']):
         replace = rf'(\toptier{{{match.group(1)} {entry["year"]}}})'
     else:
@@ -245,7 +244,6 @@ def make_cv():
     def filter_intl_journal(entry):
         return filter_journal(entry) and filter_intl(entry)
 
-    setup_hugo()
 
     with open(os.path.join(ROOT, 'cv/cv.tex'), encoding='utf-8') as f:
         txt = f.read()
