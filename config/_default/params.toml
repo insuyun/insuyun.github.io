@@ -93,7 +93,7 @@ phone = "042-350-7469"
 
 # Address
 # For country_code, use the 2-letter ISO code (see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 )
-address = {street = "Room 812, N1, Korea Advanced Institute of Science and Technology (KAIST)", city = "Daejeon", country = "South Korea", country_code = "KR"}
+address = {street = "Room 812, N1, Korea Advanced Institute of Science and Technology (KAIST)", city = "Daejeon", region = "South Korea", country_code = "KR"}
 
 # Geographic coordinates
 # To get your coordinates, right-click on Google Maps and choose "What's here?". The coords will show up at the bottom.

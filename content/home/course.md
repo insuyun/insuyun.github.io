@@ -11,12 +11,7 @@ weight: 20
 design:
     columns: "2"
 ---
-- Fall 2024: [Information Security Laboratory (IS521)](https://teemo.kaist.ac.kr/is521/2024)
-- Fall 2024: [Advanced Programming Techniques for EE (EE309)](https://teemo.kaist.ac.kr/ee309/2024)
-- Spring 2024: [Software Hacking Practice and Theory (EE517)](https://teemo.kaist.ac.kr/ee517/2024)
-- Fall 2023: [Advanced Programming Techniques for EE (EE309)](https://teemo.kaist.ac.kr/ee309/2023)
-- Spring 2023: [Software Hacking Practice and Theory (EE517)](https://teemo.kaist.ac.kr/ee517/2023)
-- Fall 2022: [Programming Structures for EE (EE209)](https://teemo.kaist.ac.kr/ee209/2022)
-- Spring 2022: [Special Topics: Software Security (EE595-B)](https://teemo.kaist.ac.kr/ee595/2022)
-- Fall 2021: [Programming Structures for EE (EE209)](https://teemo.kaist.ac.kr/ee209/2021)
-- Spring 2021: [Special Topics: Software Security (EE595-B)](https://teemo.kaist.ac.kr/ee595/2021)
+- Software Hacking Practice and Theory (EE517): [2025S](https://teemo.kaist.ac.kr/ee517/2025)/[2024S](https://teemo.kaist.ac.kr/ee517/2024)/[2023S](https://teemo.kaist.ac.kr/ee517/2023)/[2022S](https://teemo.kaist.ac.kr/ee595/2022)/[2021S](https://teemo.kaist.ac.kr/ee595/2021)
+- Information Security Laboratory (IS521): [2024F](https://teemo.kaist.ac.kr/is521/2024)
+- Advanced Programming Techniques for EE (EE309): [2024F](https://teemo.kaist.ac.kr/ee309/2024)/[2023F](https://teemo.kaist.ac.kr/ee309/2023)
+- Programming Structures for EE (EE209): [2022F](https://teemo.kaist.ac.kr/ee209/2022)/[2021F](https://teemo.kaist.ac.kr/ee209/2021)

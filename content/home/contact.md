@@ -26,15 +26,6 @@ content:
 
   # Contact details (edit or remove options as required)
   # HACK: Use region to show country
-  email: insuyun@kaist.ac.kr
-  phone: 042-350-7469
-  address:
-    street: Room 812, N1, Korea Advanced Institute of Science and Technology (KAIST)
-    city: Daejeon
-    country: South Korea
-    country_code: KR
-    region: South Korea
-#  coordinates:
 #    latitude: '37.4275'
 #    longitude: '-122.1697'
 #  directions: Enter Building 1 and take the stairs to Office 200 on Floor 2
