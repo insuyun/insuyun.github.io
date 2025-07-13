@@ -14,7 +14,7 @@ authors:
 tags: []
 categories: []
 date: '2025-06-01'
-lastmod: 2025-07-13T20:50:00+09:00
+lastmod: 2025-07-13T20:56:52+09:00
 featured: false
 draft: false
 
@@ -32,7 +32,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2025-07-13T11:50:00.767555Z'
+publishDate: '2025-07-13T11:56:51.972343Z'
 publication_types:
 - '0'
 abstract: "Cellular baseband processors represent critical security components in\
@@ -57,4 +57,5 @@ publication: '*Proceedings of the 18th ACM Conference on Security and Privacy in
   and Mobile Networks (WiSec)*'
 url_slides: pubs/2025/jeong:firmstate-slides.pdf
 url_paper: pubs/2025/jeong:firmstate.pdf
+url_code: https://github.com/1nteger-c/FirmState
 ---

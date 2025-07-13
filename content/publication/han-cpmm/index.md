@@ -12,7 +12,7 @@ authors:
 tags: []
 categories: []
 date: '2025-06-01'
-lastmod: 2025-07-13T20:50:00+09:00
+lastmod: 2025-07-13T20:56:52+09:00
 featured: false
 draft: false
 
@@ -30,7 +30,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2025-07-13T11:50:00.869040Z'
+publishDate: '2025-07-13T11:56:52.078083Z'
 publication_types:
 - '0'
 abstract: "Decentralized Finance (DeFi) enables many novel applications that were\
@@ -59,4 +59,5 @@ publication: '*Proceedings of the ACM SIGSOFT International Symposium on Softwar
   Testing and Analysis (ISSTA) 2025*'
 url_slides: pubs/2025/han:cpmm-slides.pdf
 url_paper: pubs/2025/han:cpmm.pdf
+url_code: https://github.com/kaist-hacking/CPMMX
 ---
