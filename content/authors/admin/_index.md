@@ -72,7 +72,7 @@ security in general, especially, binary analysis, automatic vulnerability
 detection, and automatic exploit generation. His work has been published to the
 major computer conferences such as IEEE Security & Privacy, USENIX Security,
 and USENIX OSDI.  Particularly, his research won the best paper award from
-USENIX Security and OSDI in 2018.
+USENIX Security and OSDI in 2018, and he also won DARPA AIxCC with Team Atlanta.
 
 In addition to research, he has been participating in several hacking
 competitions as a hacking expert. In particular, he won Pwn2Own 2020 by
