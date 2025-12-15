@@ -2,7 +2,6 @@
 # Documentation: https://wowchemy.com/docs/managing-content/
 
 title: Bridging the Gap between Real-World and Formal Binary Lifting through Filtered-Simulation
-  (to appear)
 subtitle: ''
 summary: ''
 authors:
@@ -12,7 +11,7 @@ authors:
 tags: []
 categories: []
 date: '2025-10-01'
-lastmod: 2024-12-19T10:01:10+09:00
+lastmod: 2025-12-15T20:31:08+09:00
 featured: false
 draft: false
 
@@ -30,10 +29,11 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2024-12-19T01:01:10.778954Z'
+publishDate: '2025-12-15T11:31:08.140533Z'
 publication_types:
 - '0'
 abstract: ''
 publication: '*Proceedings of the ACM SIGPLAN International Conference on Object-Oriented
   Programming, Systems, Languages, and Applications (OOPSLA) 2025*'
+url_pdf: https://dl.acm.org/doi/10.1145/3720524
 ---
