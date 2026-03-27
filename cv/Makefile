@@ -1,7 +1,10 @@
 all: gen
 	../bin/latexrun -Wall cv-gen.tex -o cv.pdf
 
-clean:
-	rm -rf *.out *.pdf *.aux
+gen:
+	../bin/make_cv.py
 
-.PHONY: all gen clean download
+clean:
+	rm -rf *.out *.pdf *.aux latex.out
+
+.PHONY: all gen clean

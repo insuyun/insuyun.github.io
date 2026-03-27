@@ -6,3 +6,4 @@
 *.fdb_latexmk
 *.synctex.gz
 /cv-gen.tex
+latex.out/

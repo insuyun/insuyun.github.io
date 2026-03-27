@@ -33,3 +33,44 @@
 \toggletrue{KAIST}
 \newcommand{\forkaist}[2]{\iftoggle{KAIST}{#1}{#2}}
 \newcommand{\toptier}[1]{\forkaist{\textcolor{magenta}{#1}}{#1}}
+
+\newcommand{\patent}[5]{
+  \item{\textbf{#1}}{}
+  \begin{itemize}[label=]
+    \setlength\itemsep{-0.5em}
+    \vspace{-5px}
+    \item Inventors: #2
+    \item Registration date: #3
+    \item Patent number: #4
+    \item Country: #5
+  \end{itemize}
+}
+
+\newcommand{\patentpending}[5]{
+  \item{\textbf{#1 (Pending)}}{}
+  \begin{itemize}[label=]
+    \setlength\itemsep{-0.5em}
+    \vspace{-5px}
+    \item Inventors: #2
+    \item Application date: #3
+    \item Application number: #4
+    \item Country: #5
+  \end{itemize}
+}
+
+\newcommand{\talk}[1]{\entry{Title: #1}}
+
+\newcommand{\grant}[5]{
+  \entry{\textbf{#1}}{#5}
+  \begin{itemize}[label=]
+    \setlength\itemsep{-0.5em}
+    \vspace{-5px}
+    \item Agency/Company: #2
+    \item Money: \$#3
+    \item Role: #4
+  \end{itemize}
+}
+
+\newcommand{\alumni}[3]{
+  \entry{#1, #2}{#3}
+}
