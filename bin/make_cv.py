@@ -9,6 +9,19 @@ from pathlib import Path
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 MY_NAME = 'Insu Yun'
+MY_STUDENTS = [
+    # Current Ph.D. Students
+    'Donghyeon Kim', 'Dongjun Lee', 'Eunkyu Lee', 'Haein Lee',
+    'Junyoung Park', 'Minwoo Baek', 'Min Woo Baek', 'Sujin Han',
+    # Current Master Students
+    'Gunhee Ahn', 'Juhyun Song', 'Kyeongmin Kim', 'Minwoo Jeong',
+    # Alumni
+    'Dongok Kim', 'Taisic Yun', 'Wonyoung Jung', 'Hyunsik Jeong',
+    'HyungSeok Han', 'Dong-uk Kim', 'Hyeon Heo', 'Seunggi Min',
+    'Wonyoung Kim',
+    # Others
+    'Jinseo Kim', 'Woosun Song', 'Seunghyun Lee',
+]
 
 LB = ' \\\\'
 
@@ -42,6 +55,10 @@ def purify_bib_entry(entry):
         index = authors.index(MY_NAME)
         assert index != -1
         authors[index] = tex_highlight(authors[index])
+        for i, author in enumerate(authors):
+            name = author.rstrip('*')
+            if name in MY_STUDENTS:
+                authors[i] = "\\underline{%s}" % author
         entry['author'] = authors_to_string(authors)
 
         # alphabetic order
