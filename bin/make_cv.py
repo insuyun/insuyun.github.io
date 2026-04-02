@@ -29,6 +29,11 @@ LB = ' \\\\'
 # - alphabetic order
 ALPHABETIC = ['cui:rept']
 
+# Exceptions: authors who were not my students at the time of publication
+STUDENT_EXCEPTIONS = {
+    'park:doltest': ['Eunkyu Lee'],
+}
+
 DOMESTIC_CONFS = [
     'CISC'
 ]
@@ -55,9 +60,10 @@ def purify_bib_entry(entry):
         index = authors.index(MY_NAME)
         assert index != -1
         authors[index] = tex_highlight(authors[index])
+        exceptions = STUDENT_EXCEPTIONS.get(entry['ID'], [])
         for i, author in enumerate(authors):
             name = author.rstrip('*')
-            if name in MY_STUDENTS:
+            if name in MY_STUDENTS and name not in exceptions:
                 authors[i] = "\\underline{%s}" % author
         entry['author'] = authors_to_string(authors)
 
