@@ -154,6 +154,9 @@ def update_resources(page, entry):
         page.fm['url_paper'] = os.path.relpath(paper, static_dir)
 
 def main():
+    if not which('hugo'):
+        sys.exit("Error: 'hugo' command not found. Please install Hugo first.")
+
     confs = read_conf()
 
     parser = BibTexParser(common_strings=True)
