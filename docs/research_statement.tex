@@ -1,0 +1,221 @@
+\documentclass[10pt,letterpaper]{article}
+
+%
+% Packages
+%
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+
+%
+% Bibliography (reuses the website's shared .bib files).
+%
+\usepackage[backend=biber,style=numeric,sorting=none,giveninits=true,
+            maxbibnames=99,mincrossrefs=99,minxrefs=99,
+            doi=false,isbn=false,url=false]{biblatex}
+\addbibresource{../assets/pubs/pub.bib}
+\addbibresource{../assets/pubs/conf.bib}
+\addbibresource{extra.bib}
+
+% Strip co-first-author asterisks from names so biber parses them cleanly.
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{\step[fieldsource=author, match=\regexp{\*}, replace={}]}
+  }
+}
+
+% Bold the author's own name ("Insu Yun") in the reference list.
+\def\myfamilyname{Yun}
+\def\mygivenname{Insu}
+\DeclareNameFormat{author}{%
+  \ifboolexpr{ test {\ifdefstring{\namepartfamily}{\myfamilyname}}
+           and test {\ifdefstring{\namepartgiven}{\mygivenname}} }
+    {\mkbibbold{\usebibmacro{name:family-given}
+        {\namepartfamily}{\namepartgiveni}{\namepartprefix}{\namepartsuffix}}}
+    {\usebibmacro{name:family-given}
+        {\namepartfamily}{\namepartgiveni}{\namepartprefix}{\namepartsuffix}}%
+  \usebibmacro{name:andothers}%
+}
+\renewcommand*{\bibfont}{\footnotesize}
+\setlength{\bibitemsep}{2pt}
+
+%
+% Compact spacing to help fit two pages
+%
+\setlist{noitemsep,topsep=2pt,leftmargin=1.5em}
+\titlespacing*{\section}{0pt}{1.2ex}{0.6ex}
+\titlespacing*{\subsection}{0pt}{0.8ex}{0.4ex}
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{0.6em}{}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1.2em}
+
+%
+% \PP{Lead-in} -- a bold run-in paragraph header followed by a period.
+%
+\newcommand{\PP}[1]{\par\smallskip\noindent\textbf{#1.}\ }
+
+%
+% Custom header: title, then name + email on one line, then affiliation.
+%
+\newcommand{\makeheader}{%
+  \begin{center}
+    {\LARGE\bfseries Research Overview}\\[2.5ex]
+    {\large Insu Yun}\quad\textbar\quad\href{mailto:insuyun@kaist.ac.kr}{insuyun@kaist.ac.kr}\\[0.2ex]
+    Associate Professor at KAIST School of Electrical Engineering
+  \end{center}
+  \vspace{1ex}
+}
+
+\begin{document}
+\makeheader
+
+% NOTE: Target length is 2 pages. If it overflows, tighten geometry margins,
+% trim the prose below, or reduce \parskip.
+
+\section{Overview}
+My research seeks to make software security \emph{scientific and scalable},
+replacing the manual, intuition-driven process of finding and fixing
+vulnerabilities with systematic, automated, and ultimately autonomous methods.
+My background as a competitive hacker informs this agenda: I design and build
+systems that discover and remediate vulnerabilities in real-world software, and I
+draw research questions from the practical difficulty of doing so. This statement
+outlines three directions: (1)~automating the discovery of software
+vulnerabilities, (2)~advancing automation toward autonomy through AI, and
+(3)~applying rigorous security analysis to deployed systems of societal
+importance, with implications that extend into public policy.
+
+\section{Automating the Discovery of Software Vulnerabilities}
+\PP{Motivation} Modern software has grown too large and changes too rapidly for
+manual auditing to keep pace. A central question of my work is how to enable
+automated systems to search for vulnerabilities with the depth and adaptivity of
+an expert analyst, while retaining the scale that only automation provides.
+
+\PP{QSYM} My most influential contribution in this area is QSYM~\cite{yun:qsym}, a
+concolic execution engine designed to enable hybrid fuzzing. Fuzzing is efficient
+but shallow, whereas symbolic execution is precise but prohibitively expensive;
+QSYM reconciles this tension through a fast, tightly integrated symbolic executor
+that allows fuzzers to reach program states previously considered unreachable at
+scale. The work helped establish hybrid fuzzing as a practical, mainstream
+technique. It received a Distinguished Paper Award at USENIX Security 2018 and
+was widely adopted as a building block within the community, and the broader line
+of work was subsequently recognized with the Frontiers of Science Award at the
+inaugural International Congress of Basic Science (ICBS). QSYM exemplifies the
+kind of research I pursue: ideas that are conceptually clean yet directly
+useful~in~practice.
+
+\PP{Pushing Automation into Hard Targets} Building on this foundation, I have
+developed a broad program spanning diverse domains. I have extended automated
+testing to targets long regarded as too complex or stateful to fuzz effectively,
+including frameworks for systematically evaluating secure memory
+allocators~\cite{yun:hardsheap}, WebAssembly runtimes~\cite{park:rgfuzz}, and
+real-time operating-system kernels~\cite{lee:rtcon}. A recurring difficulty is
+analyzing software whose source code is unavailable; my group therefore develops
+techniques to analyze and query decompiled and binary-only code in order to find
+vulnerabilities in commercial off-the-shelf software~\cite{han:queryx}, and has
+identified design-level weaknesses in widely deployed systems software, ranging
+from cross-cache attacks on the Linux kernel~\cite{kim:crossx} to structural
+flaws in the Windows file-system security model~\cite{kim:jenga}. I have further
+applied these methods to critical yet under-examined infrastructure: a sustained
+line of work analyzes cellular baseband software---the protocol stacks present in
+every mobile device---by comparing implementations against their
+specifications~\cite{kim:basespec,kim:basecomp}, testing them dynamically over the
+air~\cite{park:doltest,hoang:llfuzz,park:otabase}, and emulating their internal
+protocol states~\cite{jeong:firmstate}. This breadth also reaches beyond
+conventional software: I have synthesized attacks against the automated market
+makers that move real value in decentralized finance~\cite{han:cpmm}.
+
+\PP{Broader impact} These contributions extend beyond publications. My engagement
+with automated security is long-standing and formative: as a Ph.D. student, I
+competed as a finalist in DARPA's Cyber Grand Challenge (CGC), the first competition in
+which fully autonomous systems discovered and patched software vulnerabilities
+without human intervention. That experience directly motivated the development of
+QSYM and, in time, my participation in AIxCC, which I discuss later. Beyond such
+competitions, the methods my group develops have repeatedly uncovered and
+responsibly disclosed serious vulnerabilities in widely used commercial products,
+demonstrating that they operate on real, deployed systems rather than on
+benchmarks alone. This coupling of offensive practice with rigorous research is
+central to how I work: it keeps my research anchored in consequential, real-world
+problems.
+
+\section{Toward Autonomous Cyber Defense with AI}
+\PP{Motivation} Existing automation still depends on human involvement: people
+decide what to test, interpret the results, and produce the fixes. The next step
+is autonomy---systems capable of independently discovering, diagnosing, and
+repairing vulnerabilities. Recent progress in large language models (LLMs) makes
+this goal newly attainable and, I expect, will substantially change how software
+is secured.
+
+\PP{AIxCC} DARPA's AI Cyber Challenge (AIxCC) posed this problem at scale:
+whether an autonomous system could secure large, unfamiliar codebases by
+discovering, proving, and repairing vulnerabilities without human intervention.
+As part of Team Atlanta, I helped develop ATLANTIS, an autonomous
+cyber-reasoning system for the competition~\cite{kim:atlantis}. ATLANTIS
+integrates my group's expertise in program analysis and fuzzing with the
+reasoning capabilities of LLMs into an end-to-end pipeline that discovers
+vulnerabilities, identifies their root causes, and generates and validates
+patches; its automated repair component, PatchIsland, orchestrates multiple LLM
+agents to remediate vulnerabilities at scale and without human
+intervention~\cite{kim:patchisland}. Classical program analysis and fuzzing
+provide the rigor that grounds the system, while LLMs contribute breadth and
+flexible reasoning. ATLANTIS placed first in AIxCC, demonstrating that
+autonomous, AI-driven security is practically achievable.
+
+\PP{Broader impact} I believe this work has helped shape the emerging area of
+AI-driven vulnerability discovery, and my group continues to advance it. One
+direction is \emph{agentic fuzzing}, in which agents---seeded by historical
+vulnerabilities---reason about a defect's root cause, hypothesize where comparable
+defects may occur elsewhere in a codebase, and validate each hypothesis by
+generating and executing proof-of-concept code~\cite{park:afuzz}. More broadly, I
+regard the integration of classical program analysis with learned reasoning,
+toward systems that autonomously discover and repair vulnerabilities, as one of
+the central problems in security for the coming decade.
+
+\section{Strengthening the Security of South Korea}
+\PP{Why this matters} Much security research is conducted on abstract,
+well-defined problems, yet the failures that cause real harm are often bound up
+with how a given society designs and regulates its systems. Problems rooted in a
+specific country or context are frequently overlooked by the broader research
+community, even though addressing them can prevent genuine harm and reshape
+practice in ways that abstract problems rarely do. I therefore consider it an
+important responsibility of security researchers to engage with these concrete,
+high-impact problems, and my work on South Korea's security ecosystem illustrates
+this view.
+
+\PP{Korea Security Applications} In South Korea, users have long been required to
+install dedicated security programs---collectively, Korea Security Applications
+(KSAs)---to access financial services, software widely assumed, by mandate and
+convention rather than evidence, to improve their safety. Because this uniquely
+Korean arrangement was largely taken for granted, its actual security
+implications had never been rigorously examined. In our study, \emph{Too Much of a
+Good Thing: (In-)Security of Mandatory Security Software for Financial Services in
+South Korea}~\cite{yun:ksa}, we analyzed this ecosystem systematically and showed
+empirically that these KSAs can in fact \emph{undermine} the security they are
+intended to provide, enlarging the attack surface and introducing new risks. The result overturns a long-standing national
+assumption and illustrates the value of applying the methods of vulnerability
+research not to an individual program but to a deployed policy affecting an entire
+country.
+
+\PP{Broader impact} This work has had influence well beyond the research
+community. Most notably, the President of South Korea has since directed that
+these mandatory security applications be phased out---a concrete national policy
+outcome that our research helped bring about, and a demonstration that rigorous
+security research can effect tangible change. More broadly, I have contributed to
+reforming how vulnerabilities are handled in Korea: I helped revise the national bug-bounty program operated by the Korea
+Internet \& Security Agency (KISA), replacing a policy of indefinite
+non-disclosure with one that discloses vulnerabilities 120 days after a patch
+becomes available, and I helped introduce Coordinated Vulnerability Disclosure
+(CVD) and Vulnerability Disclosure Policy (VDP) frameworks domestically, bringing
+national practice into alignment with international norms. On the basis of this
+work, I was appointed to the security special committee under the national AI
+strategy committee, where I contribute to national security policy. This
+trajectory reflects what I believe security research can ultimately achieve:
+addressing the concrete problems a society faces and producing evidence
+sufficient to change not only systems but the decisions made about them.
+
+\printbibliography[title={References}]
+
+\end{document}
