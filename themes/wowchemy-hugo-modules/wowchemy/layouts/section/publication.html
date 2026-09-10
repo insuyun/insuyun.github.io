@@ -50,26 +50,32 @@
       </div>
 
       <div id="container-publications">
-        {{ range .Pages.ByDate.Reverse }}
+        {{ $grouped_by_year := .Pages.GroupByDate "2006" }}
+        {{ range $grouped_by_year }}
+          {{ $year := .Key }}
+          <div class="grid-sizer col-lg-12 isotope-item">
+            <h2 style="font-weight: 600">{{ $year }}</h2>
+          </div>
+          {{ range .Pages }}
+            {{ if .Params.publication_types }}
+              {{ $.Scratch.Set "pubtype" (index .Params.publication_types 0) }}
+            {{ else }}
+              {{ $.Scratch.Set "pubtype" 0 }}
+            {{ end }}
 
-        {{ if .Params.publication_types }}
-          {{ $.Scratch.Set "pubtype" (index .Params.publication_types 0) }}
-        {{ else }}
-          {{ $.Scratch.Set "pubtype" 0 }}
-        {{ end }}
+            <div class="grid-sizer col-lg-12 isotope-item pubtype-{{ $.Scratch.Get "pubtype" }} year-{{ .Date.Format "2006" }}">
 
-        <div class="grid-sizer col-lg-12 isotope-item pubtype-{{ $.Scratch.Get "pubtype" }} year-{{ .Date.Format "2006" }}">
-          {{ if eq $.Params.view 1 }}
-            {{ partial "li_list" . }}
-          {{ else if eq $.Params.view 3 }}
-            {{ partial "li_card" . }}
-          {{ else if eq $.Params.view 4 }}
-            {{ partial "li_citation" . }}
-          {{ else }}
-            {{ partial "li_compact" . }}
+                {{ if eq $.Params.view 1 }}
+                {{ partial "li_list" . }}
+              {{ else if eq $.Params.view 3 }}
+                {{ partial "li_card" . }}
+              {{ else if eq $.Params.view 4 }}
+                {{ partial "li_citation" . }}
+              {{ else }}
+                {{ partial "li_compact" . }}
+              {{ end }}
+            </div>
           {{ end }}
-        </div>
-
         {{ end }}
       </div>
 
