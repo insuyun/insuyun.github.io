@@ -1,39 +1,46 @@
 #!/bin/bash
 set -euo pipefail
 
-PUBS_ZIP_URL="https://github.com/kaist-hacking/kaist-hacking.github.io/archive/refs/heads/main.zip"
-CSCONF_URL="https://raw.githubusercontent.com/emeryberger/csconferences/main/csconferences.csv"
+PUBS_REPO="https://github.com/kaist-hacking/kaist-hacking.github.io.git"
+CSCONF_REPO="https://github.com/emeryberger/csconferences.git"
 
 # Run from the repository root (this script lives in bin/)
 cd "$(dirname "$0")/.."
 
-TMP_DIR=$(mktemp -d)
-trap 'rm -rf "${TMP_DIR}"' EXIT
+REPO_DIR="repo"
+mkdir -p "${REPO_DIR}"
 
-# Fetch and unpack the kaist-hacking site archive
-echo "Downloading ${PUBS_ZIP_URL}"
-curl -fsSL -o "${TMP_DIR}/main.zip" "${PUBS_ZIP_URL}"
-unzip -q "${TMP_DIR}/main.zip" -d "${TMP_DIR}"
+# Clone the repository on first use, otherwise pull the latest changes
+sync_repo() {
+    local url=$1
+    local dir=$2
 
-SOURCE_DIR=$(find "${TMP_DIR}" -maxdepth 1 -mindepth 1 -type d | head -1)
-if [ -z "${SOURCE_DIR}" ]; then
-    echo "Failed to locate the extracted archive directory" >&2
-    exit 1
-fi
+    if [ -d "${dir}/.git" ]; then
+        echo "Updating ${dir}"
+        git -C "${dir}" pull --ff-only
+    else
+        echo "Cloning ${url} into ${dir}"
+        git clone --depth 1 "${url}" "${dir}"
+    fi
+}
+
+PUBS_DIR="${REPO_DIR}/kaist-hacking.github.io"
+CSCONF_DIR="${REPO_DIR}/csconferences"
+
+sync_repo "${PUBS_REPO}" "${PUBS_DIR}"
+sync_repo "${CSCONF_REPO}" "${CSCONF_DIR}"
 
 # Create target directories if they don't exist
 mkdir -p assets/pubs
 mkdir -p static/pubs
 
 # Sync assets/pubs
-rsync -av "${SOURCE_DIR}/assets/pubs/" "assets/pubs/"
+rsync -av "${PUBS_DIR}/assets/pubs/" "assets/pubs/"
 
 # Sync static/pubs
-rsync -av "${SOURCE_DIR}/static/pubs/" "static/pubs/"
+rsync -av "${PUBS_DIR}/static/pubs/" "static/pubs/"
 
-# Fetch conference metadata
-echo "Downloading ${CSCONF_URL}"
-curl -fsSL -o "${TMP_DIR}/csconferences.csv" "${CSCONF_URL}"
-mv "${TMP_DIR}/csconferences.csv" bin/csconferences.csv
+# Copy conference metadata
+cp "${CSCONF_DIR}/csconferences.csv" bin/csconferences.csv
 
 make
