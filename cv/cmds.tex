@@ -34,6 +34,15 @@
 \newcommand{\forkaist}[2]{\iftoggle{KAIST}{#1}{#2}}
 \newcommand{\toptier}[1]{\forkaist{\textcolor{magenta}{#1}}{#1}}
 
+% Footnote marked with a dagger instead of a number
+\newcommand{\blfootnote}[1]{%
+  \begingroup
+  \renewcommand{\thefootnote}{\textdagger}%
+  \footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
 \newcommand{\patent}[5]{
   \item{\textbf{#1}}{}
   \begin{itemize}[label=]
