@@ -11,10 +11,12 @@ ROOT = os.path.join(os.path.dirname(__file__), "..")
 MY_NAME = 'Insu Yun'
 MY_STUDENTS = [
     # Current Ph.D. Students
-    'Donghyeon Kim', 'Dongjun Lee', 'Eunkyu Lee', 'Haein Lee',
-    'Junyoung Park', 'Minwoo Baek', 'Min Woo Baek', 'Sujin Han',
+    'Donghyeon Kim', 'Dongjun Lee', 'Eunkyu Lee', 'Gunhee Ahn',
+    'Haein Lee', 'Junyoung Park', 'Minwoo Baek', 'Min Woo Baek',
+    'Sujin Han',
     # Current Master Students
-    'Gunhee Ahn', 'Juhyun Song', 'Kyeongmin Kim', 'Minwoo Jeong',
+    'Ga-eun Bae', 'Gyumin Baek', 'Juhyun Song', 'Junghoon Cho',
+    'Kyeongmin Kim', 'Minwoo Jeong', 'Seoyeon Oh', 'Sungjun Park',
     # Alumni
     'Dongok Kim', 'Taisic Yun', 'Wonyoung Jung', 'Hyunsik Jeong',
     'HyungSeok Han', 'Dong-uk Kim', 'Hyeon Heo', 'Seunggi Min',
