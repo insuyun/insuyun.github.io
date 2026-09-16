@@ -19,7 +19,7 @@ authors:
 tags: []
 categories: []
 date: '2026-09-01'
-lastmod: 2026-09-10T18:07:18+09:00
+lastmod: 2026-09-16T20:19:26+09:00
 featured: false
 draft: false
 
@@ -37,10 +37,11 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2026-09-10T09:07:18.493666Z'
+publishDate: '2026-09-16T11:19:26.541580Z'
 publication_types:
 - '0'
 abstract: ''
 publication: '*Proceedings of the 31st European Symposium on Research in Computer
   Security (ESORICS)*'
+award: '**Best Paper Runner-up Award**'
 ---
